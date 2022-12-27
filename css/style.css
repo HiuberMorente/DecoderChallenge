@@ -58,6 +58,10 @@ textarea {
 
 /** HEADER */
 
+header {
+  background: linear-gradient(var(--gray-100), var(--light-blue-100));
+}
+
 .hero {
   display: flex;
   align-items: center;
@@ -77,6 +81,12 @@ textarea {
   margin: 0 auto;
 }
 
+.hero .text {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0 auto;
+  
+}
 
 /** MAIN */
 
@@ -270,9 +280,23 @@ section {
 /** FOOTER */
 
 footer {
-  padding: 3rem;
+  background: linear-gradient(var(--light-blue-100),  var(--gray-200));
   text-align: center;
   margin: 0 auto;
+  font-size: 2.5rem;
+  /* font-weight: bold; */
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+}
+
+footer a {
+  color: black;
+  /* background-color: black; */
 }
 
 
