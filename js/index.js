@@ -57,12 +57,17 @@ function dynamicResultSection(){
   }
 }
 
+const removeAccents = (text) => {
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 
 function encryptText(){
   hideElements();
   dynamicResultSection()
 
-  decryptMessage = decoderTextarea.trim();
+  decryptMessage = removeAccents(decoderTextarea);
+  decryptMessage = decryptMessage.trim();
   decryptMessage = decryptMessage.toLowerCase();
 
   encryptMessage = decryptMessage.replace(/e/g, "enter");
@@ -71,8 +76,6 @@ function encryptText(){
   encryptMessage = encryptMessage.replace(/o/g, "ober");
   encryptMessage = encryptMessage.replace(/u/g, "ufat");
 
-
-  // resultArea.style.height = "fit-content(595px)";
 
   textResult.value  = encryptMessage;
 
@@ -83,7 +86,8 @@ function decryptText(){
   hideElements();
   dynamicResultSection()
 
-  encryptMessage = decoderTextarea.trim();
+  encryptMessage = removeAccents(decoderTextarea);
+  encryptMessage = encryptMessage.trim();
   encryptMessage = encryptMessage.toLowerCase();
 
   decryptMessage = encryptMessage.replace(/enter/g, "e");
